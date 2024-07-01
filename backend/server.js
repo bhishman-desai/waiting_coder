@@ -731,6 +731,9 @@ app.get('/api/get_user_levle/:next', (req, res) => {
   });
 });
 
-app.listen(8081, () => {
-  console.log("Listening on port 8081");
+app.listen(4000, () => {
+  console.log("Listening on port 4000");
+  console.log("host:", process.env.DB_HOST);
+  console.log("user:", process.env.DB_USER);
+  console.log("password:", process.env.DB_PASSWORD);
 });
