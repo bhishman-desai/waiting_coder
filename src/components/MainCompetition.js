@@ -24,7 +24,7 @@ function MainCompetition() {
         document.body.style.overflow = 'hidden'; // Hide overflow
       };
       function get_competitions() {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_competitions/${userId}/${selectedOptionKey}`)
+        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_PREFIX}/api/get_competitions/${userId}/${selectedOptionKey}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -47,7 +47,7 @@ function MainCompetition() {
             id_user: userId,
             id_competition: competitionId
             };
-          fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/register_competition`, {
+          fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/register_competition`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ function MainCompetition() {
           id_competition: competitionId,
         };
       
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/delete_registration_competition`, {
+        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/delete_registration_competition`, {
           method: 'DELETE', // Use the DELETE method for deletion
           headers: {
             'Content-Type': 'application/json',

@@ -23,7 +23,7 @@ function MainEvent() {
   };
   
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_events/${userId}/${selectedOptionKey}`)
+    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_PREFIX}/api/get_events/${userId}/${selectedOptionKey}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -46,7 +46,7 @@ function MainEvent() {
       id_user: userId,
       id_event: eventId
       };
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/register_event`, {
+    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/register_event`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const deleteRegistration = (eventId) => {
     id_event: eventId,
   };
 
-  fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/delete_registration`, {
+  fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/delete_registration`, {
     method: 'DELETE', // Use the DELETE method for deletion
     headers: {
       'Content-Type': 'application/json',
