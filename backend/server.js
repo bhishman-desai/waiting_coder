@@ -15,6 +15,8 @@ const db = mysql.createConnection({
   
 app.use(express.json()); 
 
+app.get('/', (req, res) => res.json({message: 'App running!'}))
+
 app.post('/signup', (req, res) => {
   const selectSql = "SELECT * FROM `user` WHERE `firstName` = ? AND `password` = ?";
   const selectName = [req.body.name];
