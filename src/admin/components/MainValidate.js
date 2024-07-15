@@ -46,7 +46,7 @@ function MainValidate() {
       }, 300);
     }, []);
     useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getOldGroups`)
+        fetch(`api/api/getOldGroups`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -60,7 +60,7 @@ function MainValidate() {
       }, []);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getCurrentGroups`)
+        fetch(`api/api/getCurrentGroups`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -123,7 +123,7 @@ function MainValidate() {
         }
 
         useEffect(() => {
-            fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getProjectSpecific/${idSpefific}`)
+            fetch(`api/api/getProjectSpecific/${idSpefific}`)
               .then((response) => {
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
@@ -141,7 +141,7 @@ function MainValidate() {
           }, [idSpefific]);
 
           useEffect(() => {
-            fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getStudentsGroup/${idGroup}/${idProject}`)
+            fetch(`api/api/getStudentsGroup/${idGroup}/${idProject}`)
               .then((response) => {
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
@@ -194,7 +194,7 @@ function MainValidate() {
   };
   const fetchNewAllStudent = () => 
   {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getStudentsGroup2/${idGroup2}/${idProject2}`)
+    fetch(`api/api/getStudentsGroup2/${idGroup2}/${idProject2}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -209,7 +209,7 @@ function MainValidate() {
   const handlCklickEachValid = (idUser) => {
     console.log("idUser ",idUser)
     console.log("idProject ",idProject)
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validEachProject/${parseInt(idUser)}/${parseInt(idProject)}`, {
+    fetch(`api/api/validEachProject/${parseInt(idUser)}/${parseInt(idProject)}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -229,7 +229,7 @@ function MainValidate() {
   const handlCklickEachValid2 = (idUser) => {
     console.log("idUser ",idUser)
     console.log("idProject ",idProject2)
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validEachProject/${parseInt(idUser)}/${parseInt(idProject2)}`, {
+    fetch(`api/api/validEachProject/${parseInt(idUser)}/${parseInt(idProject2)}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ function MainValidate() {
   };
   
   const fetchNewData = () => {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getStudentsGroup/${idGroup}/${idProject}`)
+    fetch(`api/api/getStudentsGroup/${idGroup}/${idProject}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -271,7 +271,7 @@ function MainValidate() {
     }
     if (selectedIDs.length > 0)
     {
-      fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validAllProject/${parseInt(idGroup)}/${parseInt(idProject)}`, {
+      fetch(`api/api/validAllProject/${parseInt(idGroup)}/${parseInt(idProject)}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -292,7 +292,7 @@ function MainValidate() {
 
   const getConversation = () =>
   {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/get_pushProject/${idProject2}/${idUser}`)
+    fetch(`api/api/get_pushProject/${idProject2}/${idUser}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -345,7 +345,7 @@ function MainValidate() {
   // finish function 2 
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getStudentsGroup2/${idGroup2}/${idProject2}`)
+    fetch(`api/api/getStudentsGroup2/${idGroup2}/${idProject2}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -361,7 +361,7 @@ function MainValidate() {
   }, [idProject2, idGroup2]);
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getProjectSpecific/${idSpefific2}`)
+    fetch(`api/api/getProjectSpecific/${idSpefific2}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -380,7 +380,7 @@ function MainValidate() {
 
   const newProject = () =>
   {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getProjectSpecific/${idSpefific2}`)
+    fetch(`api/api/getProjectSpecific/${idSpefific2}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -426,7 +426,7 @@ function MainValidate() {
   {
     if(inputValue !== '' && idUser !== null) 
     {
-      fetch('http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/send_messageFromTeacher', {
+      fetch('api/api/send_messageFromTeacher', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -461,7 +461,7 @@ function MainValidate() {
     }
     if(selectedIDs.length > 0)
     {
-      fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validAllStudentSepcific/${parseInt(idGroup)}/${parseInt(idSpefific)}`, {
+      fetch(`api/api/validAllStudentSepcific/${parseInt(idGroup)}/${parseInt(idSpefific)}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -483,7 +483,7 @@ function MainValidate() {
   const handelVlidEachStudentSpecific = (idUser) =>
   {
     console.log("idUser ",idUser)
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validEachStudentSpecific/${parseInt(idUser)}/${parseInt(idSpefific)}`, {
+    fetch(`api/api/validEachStudentSpecific/${parseInt(idUser)}/${parseInt(idSpefific)}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

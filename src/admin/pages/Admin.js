@@ -33,7 +33,7 @@ const handleButtonClick = () => {
 const singIn = async() =>
 {
     try {
-        const response = await fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/signup`, {
+        const response = await fetch(`api/signup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

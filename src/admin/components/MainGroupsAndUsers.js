@@ -26,7 +26,7 @@ function MainGroupsAndUsers() {
     const [addSucces, setAddSucces] = useState(2);
 
     useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getMoreInfoGroups`)
+        fetch(`api/api/getMoreInfoGroups`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -41,7 +41,7 @@ function MainGroupsAndUsers() {
       }, []);
     
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getGroupsWorking`)
+        fetch(`api/api/getGroupsWorking`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -55,7 +55,7 @@ function MainGroupsAndUsers() {
       }, []);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getUserSpecificPayment/${selectIdGroup}`)
+        fetch(`api/api/getUserSpecificPayment/${selectIdGroup}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -69,7 +69,7 @@ function MainGroupsAndUsers() {
       }, [selectIdGroup, isCheckAllChecked,updatedIds, selectIdGroup]);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getOldGroups`)
+        fetch(`api/api/getOldGroups`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -83,7 +83,7 @@ function MainGroupsAndUsers() {
       }, []);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getCurrentGroups`)
+        fetch(`api/api/getCurrentGroups`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -207,7 +207,7 @@ function MainGroupsAndUsers() {
         checkedStudentIds: checkedStudentIds,
         selectIdGroup: selectIdGroup,
       };
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/validateWeekAll`, {
+    fetch(`api/api/validateWeekAll`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -230,7 +230,7 @@ function MainGroupsAndUsers() {
   
   const handelValidate = (event, id_user) =>
   {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/updateValidationWeek`, {
+    fetch(`api/api/updateValidationWeek`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -248,7 +248,7 @@ function MainGroupsAndUsers() {
 
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getAllNameSpecifics`)
+    fetch(`api/api/getAllNameSpecifics`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -262,7 +262,7 @@ function MainGroupsAndUsers() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/getAllTeachers`)
+    fetch(`api/api/getAllTeachers`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -322,7 +322,7 @@ function MainGroupsAndUsers() {
     && idSpecific !== 'Choose Specifics' && idSpecific !== '' && selectedOption4 !== 'Choose Teacher'
     && idTeacher !== 'Choose Teacher' && idTeacher !== '')
     {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/createGroup`, {
+    fetch(`api/api/createGroup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -392,7 +392,7 @@ const finisheGroup = () =>
   if (selectedIdGroupFinish !== null 
     && selectedIdGroupFinish !== 'Choose Group to Finishe')
   {
-    fetch(`http://${process.env.REACT_APP_ADMIN_HOST}:${process.env.REACT_APP_ADMIN_PORT}/api/updateGroups/${parseInt(selectedIdGroupFinish)}`, {
+    fetch(`api/api/updateGroups/${parseInt(selectedIdGroupFinish)}`, {
       method: 'PUT',  // This should be 'PUT' since you're updating the resource.
       headers: {
         'Content-Type': 'application/json',
