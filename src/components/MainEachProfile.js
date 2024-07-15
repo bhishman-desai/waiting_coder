@@ -29,7 +29,7 @@ useEffect(() => {
     window.scrollTo(0, 0);
     }, []);
     useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_languages/${idCollectionValue}`)
+        fetch(`api/api/get_languages/${idCollectionValue}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -44,7 +44,7 @@ useEffect(() => {
       }, [idCollectionValue]);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_porject/${idCollectionValue}`)
+        fetch(`api/api/get_porject/${idCollectionValue}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -63,7 +63,7 @@ useEffect(() => {
 
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_tools/${idCollectionValue}`)
+        fetch(`/api/get_tools/${idCollectionValue}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -78,7 +78,7 @@ useEffect(() => {
       }, [idCollectionValue]);
 
       useEffect(() => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/get_skills/${id}`)
+        fetch(`/api/get_skills/${id}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");

@@ -25,7 +25,7 @@ function EachLevel({setIdCollectionValue, setId}) {
     console.log()
     const location = useLocation();
     useEffect(() => {
-      fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/get_each_user_levle/${localStorage.getItem('idEachProfile')}`)
+      fetch(`api/get_each_user_levle/${localStorage.getItem('idEachProfile')}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -49,7 +49,7 @@ function EachLevel({setIdCollectionValue, setId}) {
     const gradient = `linear-gradient(to right, #02babd ${backgroundBlue}%, #1b1c2312 0%)`;
 
     useEffect(() => {
-      fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/name_specifics/${localStorage.getItem('idEachProfile')}`)
+      fetch(`/name_specifics/${localStorage.getItem('idEachProfile')}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -72,7 +72,7 @@ function EachLevel({setIdCollectionValue, setId}) {
 
     // valid specific or no
     useEffect(() => {
-      fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api/validation_specific/${localStorage.getItem('idEachProfile')}/${idCollection}`)
+      fetch(`/api/validation_specific/${localStorage.getItem('idEachProfile')}/${idCollection}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
