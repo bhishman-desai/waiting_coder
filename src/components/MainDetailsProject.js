@@ -13,7 +13,7 @@ function DetailsProject() {
   const [selectedValuesRessources, setSelectedValuesRessources] = useState([]);
   const idProject = localStorage.getItem('idProject');
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_PREFIX}/api/get_AllPorject/${idProject}`)
+    fetch(`api/api/get_AllPorject/${idProject}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -27,7 +27,7 @@ function DetailsProject() {
   }, [idProject]);
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/get_ressourcesPorject/${idProject}`)
+    fetch(`api/api/get_ressourcesPorject/${idProject}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

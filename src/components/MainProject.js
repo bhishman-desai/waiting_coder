@@ -12,7 +12,7 @@ import biographie from '../imgs/biographie.png';
 function MainProject() {
   const [setSelectValuesProjects, setSetSelectValuesProjects] = useState([]);
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_PREFIX}/api/get_porject/${localStorage.getItem("selectedOptionKey")}`)
+    fetch(`api/api/get_porject/${localStorage.getItem("selectedOptionKey")}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

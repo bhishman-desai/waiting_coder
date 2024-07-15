@@ -13,7 +13,7 @@ function Searsh() {
   const [value, setValue] = useState('');
   useEffect(() => {
     // Delay the fetch request by 2 seconds
-      fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.REACT_APP_PREFIX}/get_user/${userId}`)
+      fetch(`api/get_user/${userId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -37,7 +37,7 @@ function Searsh() {
     }
   
     // Fetch data from the '/data' endpoint
-    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/${process.env.SERVER_PREFIX}/api/search/${value}`)
+    fetch(`api/api/search/${value}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
